@@ -101,11 +101,6 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
         pet_info.evolved = true;
         $('.pet-comment').text("I evolved into Tyrantrum!");
 
-        updatePetInfoInHtml();
-
-        petAnimation('pet-evolve');
-
-        return;
       }
       updatePetInfoInHtml();
     }
