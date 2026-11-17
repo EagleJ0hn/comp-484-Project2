@@ -26,12 +26,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
       $('.pet-comment').text("Thank you for the treat!");
 
-      // Treat animation
-      const petImage = document.querySelector('.pet-image');
-      petImage.classList.remove('pet-bounce');
-      void petImage.offsetWidth;
-      petImage.classList.add('pet-bounce');
       checkAndUpdatePetInfoInHtml();
+
+      petAnimation('pet-bounce');
     }
     
     function clickedPlayButton() {
@@ -41,12 +38,10 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.weight -= 1;
 
       $('.pet-comment').text("That was fun!")
-      // Play Animation
-      const petImage = document.querySelector('.pet-image');
-      petImage.classList.remove('pet-bounce');
-      void petImage.offsetWidth;
-      petImage.classList.add('pet-bounce');
+      
       checkAndUpdatePetInfoInHtml();
+
+      petAnimation('pet-bounce');
     }
     
     function clickedExerciseButton() {
@@ -56,24 +51,28 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.weight -= 2
 
       $('.pet-comment').text("Im feeling exhausted.")
-      // Excersise Animation
-      const petImage = document.querySelector('.pet-image');
-      petImage.classList.remove('pet-bounce');
-      void petImage.offsetWidth;
-      petImage.classList.add('pet-bounce');
+
       checkAndUpdatePetInfoInHtml();
+
+      petAnimation('pet-bounce');
     }
 
     function clickedSleepButton(){
       pet_info.happiness += 10;
 
       $('.pet-comment').text("Now I feel well rested!")
-      // Sleep Animation
-      const petImage = document.querySelector('.pet-image');
-      petImage.classList.remove('pet-bounce');
-      void petImage.offsetWidth;
-      petImage.classList.add('pet-bounce');
+
       checkAndUpdatePetInfoInHtml();
+
+      petAnimation('pet-bounce');
+    }
+
+    function petAnimation(animationName){
+      const petImage = document.querySelector('.pet-image');
+
+      petImage.classList.remove('pet-bounce', 'pet-evolve');
+      void petImage.offsetWidth;
+      petImage.classList.add(animationName);
     }
 
     function clickedRenameButton(){
@@ -85,7 +84,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       if(newName != ""){
         pet_info.name = newName;
 
-        if (newName.toLowerCase() === "tyrant"){
+        if (newName.toLowerCase() === "shiny"){
           pet_info.shiny = true;
           $('.pet-comment').text("Cool! Im a shiny Pokemon!");
         }else{
@@ -101,12 +100,12 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       if(pet_info.happiness >= 100 && !pet_info.evolved){
         pet_info.evolved = true;
         $('.pet-comment').text("I evolved into Tyrantrum!");
-        
-        //Evolution Animation
-        const petImage = document.querySelector('.pet-image');
-        petImage.classList.remove('pet-evolve');
-        void petImage.offsetWidth;
-        petImage.classList.add('pet-evolve');
+
+        updatePetInfoInHtml();
+
+        petAnimation('pet-evolve');
+
+        return;
       }
       updatePetInfoInHtml();
     }

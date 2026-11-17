@@ -6,20 +6,38 @@
   body {
     font-family: helvetica, arial, sans-serif;
     margin: 25px;
+    padding: 30px;
+    background-color: #e8edf5;
+    color: #1e2835;
   }
   
   main {
-    display:block;
+    display:flex;
     height:175px;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    max-width: 850px;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 12);
+
   }
   
   header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #cbd5e1;
+    max-width: 850px;
+    margin: 0 auto 20px;
+    padding-bottom: 2px solid #cbd5e1;
+    text-align: center;
   }
   
   h1 {
     font-weight: bold;
-    color: #000;
+    color: #1e2835;
   }
   
   .bold {
@@ -54,17 +72,24 @@
   }
   
   .pet-image-container {
-    float:left;
-    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding:15px;
+    background-color: #f1f5f9;
+    border-radius: 12px;
   }
   
   .dashboard {
-    float:left;
-    padding:20px;
+    flex: 1;
+    padding:15px;
   }
   
   .button-container {
     margin-top:20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex;
   }
   
   .button-container button {
@@ -72,8 +97,10 @@
       margin-right: 10px;
       text-align: center;
       display: inline-block;
-      float: left;
     font-size:15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
     background-color: #1e2835;
     border-color: #404853;
     cursor:pointer;
@@ -81,10 +108,24 @@
     color: #fafafa;
   }
 
+  .button-container button:hover {
+    background-color: #404853;
+
+  }
+
+  .pet-comment {
+    min-height: 20px;
+    color: #334e80;
+    font-weight: bold;
+  }
+
   /* Animation */
 
   .pet-image{
     transition: transform 0.3s ease;
+    height: 260px;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   .pet-bounce{
