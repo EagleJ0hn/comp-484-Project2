@@ -76,7 +76,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
 
     function clickedRenameButton(){
-      //.val() is used to get values of form elements such as input
+      //.val() is used to get/change values of inputs
       // Here it gets the new name entered by the user with .val()
       var newName = $('.pet-name-input').val();
 
